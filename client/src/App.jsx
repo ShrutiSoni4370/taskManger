@@ -4,7 +4,7 @@ import axios from "axios";
 
 function App() {
 
-  const API = "http://localhost:3000/tasks";
+  const API = process.env.REACT_APP_API_URL || "http://localhost:3000/api/tasks";
 
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
