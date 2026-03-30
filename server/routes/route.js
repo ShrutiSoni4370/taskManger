@@ -9,8 +9,6 @@ import {
 import express from 'express';
 const router = express.Router();
 
- 
-
 router.post('/tasks', createTask);
 router.get('/tasks', getAllTasks);
 router.get('/tasks/:id', getTaskById);
