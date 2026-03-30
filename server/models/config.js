@@ -1,9 +1,9 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(
-      process.env.MONGO_URI || "mongodb://127.0.0.1:27017/devops-practice"
+      process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/devops-practice'
     );
 
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);

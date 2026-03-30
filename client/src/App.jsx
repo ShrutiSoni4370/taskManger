@@ -1,19 +1,19 @@
-import './App.css'
-import { useState, useEffect } from "react";
-import axios from "axios";
+import './App.css';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
-
-  const API = process.env.REACT_APP_API_URL || "http://localhost:3000/api/tasks";
+  const API =
+    process.env.REACT_APP_API_URL || 'http://localhost:3000/api/tasks';
 
   const [tasks, setTasks] = useState([]);
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
   const [selectedTask, setSelectedTask] = useState(null);
   const [editMode, setEditMode] = useState(false);
-  const [editTitle, setEditTitle] = useState("");
-  const [editContent, setEditContent] = useState("");
+  const [editTitle, setEditTitle] = useState('');
+  const [editContent, setEditContent] = useState('');
 
   // 🔄 Fetch tasks
   const fetchTasks = async () => {
@@ -35,8 +35,8 @@ function App() {
 
     try {
       await axios.post(API, { title, content });
-      setTitle("");
-      setContent("");
+      setTitle('');
+      setContent('');
       fetchTasks();
     } catch (error) {
       console.error(error);
@@ -71,7 +71,6 @@ function App() {
 
   return (
     <div className="min-h-screen flex p-6 bg-gray-100 gap-6">
-
       {/* LEFT: FORM */}
       <div className="w-1/3 bg-white p-6 rounded-2xl shadow">
         <h2 className="text-xl font-bold mb-4">Create Task</h2>
@@ -143,9 +142,7 @@ function App() {
                 </div>
               </div>
 
-              <p className="text-sm text-gray-600 truncate">
-                {task.content}
-              </p>
+              <p className="text-sm text-gray-600 truncate">{task.content}</p>
             </div>
           ))}
         </div>
@@ -155,7 +152,6 @@ function App() {
       {selectedTask && (
         <div className="fixed inset-0 bg-black/40 flex justify-center items-center">
           <div className="bg-white p-6 rounded-xl w-1/3 relative">
-
             <button
               onClick={() => {
                 setSelectedTask(null);
@@ -191,13 +187,9 @@ function App() {
               </>
             ) : (
               <>
-                <h2 className="text-xl font-bold mb-2">
-                  {selectedTask.title}
-                </h2>
+                <h2 className="text-xl font-bold mb-2">{selectedTask.title}</h2>
 
-                <p className="text-gray-700 mb-4">
-                  {selectedTask.content}
-                </p>
+                <p className="text-gray-700 mb-4">{selectedTask.content}</p>
 
                 <button
                   onClick={() => {
@@ -211,11 +203,9 @@ function App() {
                 </button>
               </>
             )}
-
           </div>
         </div>
       )}
-
     </div>
   );
 }

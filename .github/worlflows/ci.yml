@@ -1,0 +1,53 @@
+name: MERN CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Get your code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Setup Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3. Install dependencies (root)
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Lint check
+      - name: Run ESLint
+        run: npm run lint
+
+      # 5. Format check
+      - name: Check Prettier formatting
+        run: npm run format:check
+
+      # 6. Run tests
+      - name: Run Tests
+        run: npm test
+
+      # 7. Build frontend (client)
+      - name: Build React App
+        run: |
+          cd client
+          npm install
+          npm run build
+
+      # 8. Optional: backend check
+      - name: Start Server Check
+        run: |
+          cd server
+          npm install
+          node index.js &
+          sleep 5

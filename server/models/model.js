@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const taskSchema = new mongoose.Schema(
   {
@@ -10,7 +10,7 @@ const taskSchema = new mongoose.Schema(
     },
     content: {
       type: String,
-      default: "",
+      default: '',
       trim: true,
     },
     completed: {
@@ -23,6 +23,6 @@ const taskSchema = new mongoose.Schema(
   }
 );
 
-const Task = mongoose.model("Task", taskSchema);
+const Task = mongoose.model('Task', taskSchema);
 
 export default Task;
