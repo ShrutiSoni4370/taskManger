@@ -2,9 +2,9 @@ name: MERN CI Pipeline
 
 on:
   push:
-    branches: ['*']
+    branches: [main, checkci]
   pull_request:
-    branches: ['*']
+    branches: [main]
 
 jobs:
   build:
