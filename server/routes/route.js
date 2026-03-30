@@ -9,7 +9,7 @@ import {
 import express from 'express';
 const router = express.Router();
 
-
+const testUnusedVar = 123; // unused, should trigger ESLint
 
 router.post('/tasks', createTask);
 router.get('/tasks', getAllTasks);
