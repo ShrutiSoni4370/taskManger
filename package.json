@@ -6,7 +6,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+      "test": "echo \"No tests yet\" && exit 0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
