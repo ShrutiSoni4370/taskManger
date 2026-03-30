@@ -10,8 +10,7 @@ import express from 'express';
 const router = express.Router();
 
 
-const unusedVar = 42; // This will trigger ESLint "no-unused-vars"
-console.log("CI test");
+git 
 
 router.post('/tasks', createTask);
 router.get('/tasks', getAllTasks);
